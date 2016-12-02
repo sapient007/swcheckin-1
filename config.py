@@ -1,6 +1,6 @@
 import os
 
-class BaseConfig(object):
+class DefaultConfig(object):
     basedir = os.path.abspath(os.path.dirname(__file__))
 
     DEBUG = False
@@ -10,7 +10,3 @@ class BaseConfig(object):
 
     # Folder to store migration data files
     SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repo')
-
-
-class DevConfig(BaseConfig):
-    DEBUG = True
