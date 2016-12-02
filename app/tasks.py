@@ -1,6 +1,15 @@
 import requests
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 checkin_url = 'https://www.southwest.com/flight/retrieveCheckinDoc.html'
+
+
+def reminder(last_name, first_name, code):
+    # TODO: send a reminder via text or slack msg
+    logger.info("This is a reminder")
 
 
 def checkin(last_name, first_name, code):
@@ -10,6 +19,6 @@ def checkin(last_name, first_name, code):
         'firstName': first_name,
         'confirmationNumber': code,
     }
-    print("checking in for {}".format(data))
+    logger.info("checking in for {}".format(data))
     response = session.post(checkin_url, data)
-    print("Response: {}".format(response.content))
+    logger.info("Response: {}".format(response.content))
