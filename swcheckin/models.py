@@ -1,9 +1,6 @@
 from datetime import datetime
 
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from swcheckin import db
 
 
 class Reservation(db.Model):
@@ -20,6 +17,6 @@ class Reservation(db.Model):
         self.flight_time = flight_time
 
     def __repr__(self):
-       return '<Reservation for {} {}: {} - {}>'.format(
-           self.first_name, self.last_name, self.code,
-           datetime.strftime(self.flight_time, '%Y-%m_%d %H:%M'))
+        return '<Reservation for {} {}: {} - {}>'.format(
+            self.first_name, self.last_name, self.code,
+            datetime.strftime(self.flight_time, '%Y-%m_%d %H:%M'))
